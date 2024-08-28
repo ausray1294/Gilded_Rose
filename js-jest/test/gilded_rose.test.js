@@ -46,4 +46,13 @@ describe('Gilded Rose Pin Down Tests', () => {
 
     expect(items[0].quality).toBe(0);
   });
+
+  test('Quality of "Aged Brie" should increase by 2 when there are 0 or less days', () => {
+    let agedBrie = new Item('Aged Brie', 0, 21);
+    const gildedRose = new Shop([agedBrie]);
+
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(23);
+  });
 });
