@@ -32,4 +32,13 @@ describe("Gilded Rose Pin Down Tests", () => {
     
     expect(items[0].quality).toBe(23);
   });
+
+  test("Normal items should degrade in quality by 2 each day", () => {
+    let normalItem = new Item("normal", 0, 20); //build
+    const gildedRose = new Shop([normalItem]);
+
+    const items = gildedRose.updateQuality(); //operate
+
+    expect(items[0].quality).toBe(18); //check
+  });
 });
