@@ -25,17 +25,24 @@ class Shop {
       item.name == 'Backstage passes to a TAFKAL80ETC concert'
       ? updateBackstagePass(...item) :
       item.name == 'Sulfuras, Hand of Ragnaros' :
-      ? updateSulfuras(...item) :
+      ? item :
       updateNormalItem(...item)
     }
     return item
   }
     updateNormalItem = (...item) => {
       item.sellIn > 0 ? item.sellIn =- 1 : item.quality =- 1
-      item.quality > 0 ? item.quality =- 1 : item.quality
-
+      item.quality > 0 ? item.quality =- 1 : item
       return item
       }
+
+    updateAgedBrie = (...item) => {
+      item.sellIn > 0 ? item.sellIn =- 1 : item.qulity =+ 2
+      if (item.quality === 50) {
+      item.quality > 0 ? item.quality =+ 1 : item.quality =+ 2
+      }
+      return item
+    }
 
 
 
