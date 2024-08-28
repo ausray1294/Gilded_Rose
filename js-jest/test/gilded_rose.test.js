@@ -8,6 +8,7 @@ describe('Gilded Rose Pin Down Tests', () => {
 
     const items = gildedRose.updateQuality(); //operate
 
+    expect(items[0].name).not.toEqual('Sulfuras, Hand of Ragnaros');
     expect(items[0].quality).toBe(19); //check
   });
 
@@ -18,6 +19,7 @@ describe('Gilded Rose Pin Down Tests', () => {
     const items = gildedRose.updateQuality();
 
     expect(items[0].quality).toBe(21);
+    expect(items[0].name).not.toEqual('Sulfuras, Hand of Ragnaros');
   });
 
   test('Quality of "Backstage passes" should increase by 3 when there are 5 days or less', () => {
@@ -54,5 +56,14 @@ describe('Gilded Rose Pin Down Tests', () => {
     const items = gildedRose.updateQuality();
 
     expect(items[0].quality).toBe(23);
+  });
+
+  test('Item, Sulfuras, Hand of Ragnaros, should not decrease in quality', () => {
+    let sulfuras = new Item('Sulfuras, Hand of Ragnaros', 0, 80);
+    const gildedRose = new Shop([sulfuras]);
+    const items = gildedRose.updateQuality();
+
+    expect(items[0].quality).toBe(80);
+    expect(items[0].sellIn).toBe(0);
   });
 });

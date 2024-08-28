@@ -11,7 +11,43 @@ class Shop {
     this.items = items;
   }
   updateQuality() {
-    this.items.map((item) => item);
+    /*
+    this.items.map((item) => {
+      let result = checkNameFunction(item) {
+      return result;
+    }
+  }
+
+  checkNameFunction = (...item) => {
+    if (item) {
+      item.name == 'Aged Brie'
+      ? updateAgedBrie(...item) :
+      item.name == 'Backstage passes to a TAFKAL80ETC concert'
+      ? updateBackstagePass(...item) :
+      item.name == 'Sulfuras, Hand of Ragnaros' :
+      ? updateSulfuras(...item) :
+      updateNormalItem(...item)
+    }
+    return item
+  }
+    updateNormalItem = (...item) => {
+      item.sellIn > 0 ? item.sellIn =- 1 : item.quality =- 1
+      item.quality > 0 ? item.quality =- 1 : item.quality
+
+      return item
+      }
+
+
+
+
+
+
+
+      updateSellIn
+      updateNormalQuality
+
+      */
+
     for (let i = 0; i < this.items.length; i++) {
       if (
         this.items[i].name != 'Aged Brie' &&
@@ -69,12 +105,6 @@ module.exports = {
   Item,
   Shop,
 };
-
-
-
-
-
-
 
 // class Shop {
 //   constructor(items = []) {
