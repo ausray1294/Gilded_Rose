@@ -132,7 +132,7 @@ module.exports = {
 //   }
 // }
 
-// module.exports = {
-//   Item,
-//   Shop,
-// };
+module.exports = {
+  Item,
+  Shop,
+};

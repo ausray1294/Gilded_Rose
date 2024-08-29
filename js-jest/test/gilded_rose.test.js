@@ -21,6 +21,17 @@ describe('Gilded Rose Pin Down Tests', () => {
       expect(items[0].quality).toBe(19); //check
     });
 
+    test('Normal items should degrade in quality by 1 again if they are at zero for a total of 2', () => {
+      let normalItem = new Item('normal', -1, 20);
+      const gildedRose = new Shop([normalItem]);
+
+      expect(normalItem.quality).toBe(20);
+      const items = gildedRose.updateQuality();
+
+      expect(items[0].name).not.toEqual('Sulfuras, Hand of Ragnaros');
+      expect(items[0].quality).toBe(18);
+    });
+
     test('Normal items should degrade in quality by 2 each day', () => {
       let normalItem = new Item('normal', 0, 20);
       const gildedRose = new Shop([normalItem]);
@@ -48,11 +59,12 @@ describe('Gilded Rose Pin Down Tests', () => {
 
       const items = gildedRose.updateQuality();
 
+      expect(items[0].sellIn).toBe(4);
       expect(items[0].quality).toBe(50);
     });
 
-    test('Quality of "Aged Brie" should increase by 1 each day', () => {
-      let agedBrie = new Item('Aged Brie', 10, 20);
+    test('Quality of "Aged Brie" should increase by 1 each day as long is it is above zero', () => {
+      let agedBrie = new Item('Aged Brie', 1, 20);
       const gildedRose = new Shop([agedBrie]);
 
       const items = gildedRose.updateQuality();
@@ -66,7 +78,7 @@ describe('Gilded Rose Pin Down Tests', () => {
       const gildedRose = new Shop([agedBrie]);
 
       const items = gildedRose.updateQuality();
-
+      expect(items[0].sellIn).toBe(-1);
       expect(items[0].quality).toBe(23);
     });
   });
