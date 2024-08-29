@@ -17,8 +17,8 @@ describe('Gilded Rose Pin Down Tests', () => {
 
       const items = gildedRose.updateQuality(); //operate
 
-      expect(items[0].name).not.toEqual('Sulfuras, Hand of Ragnaros');
       expect(items[0].quality).toBe(19); //check
+      expect(items[0].name).not.toEqual('Sulfuras, Hand of Ragnaros');
     });
 
     test('Normal items should degrade in quality by 1 again if they are at zero for a total of 2', () => {

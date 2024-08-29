@@ -10,6 +10,7 @@ class Shop {
   constructor(items = []) {
     this.items = items;
   }
+
   updateQuality() {
     this.items = this.items.map((item) => this.checkNameFunction(item));
     return this.items;
@@ -23,7 +24,7 @@ class Shop {
       : item.name == 'Sulfuras, Hand of Ragnaros'
       ? item
       : item.name.includes('Conjured')
-      ? this.updateConjuredItems(item)
+      ? this.updateConjuredItem(item)
       : this.updateNormalItem(item);
   };
 
@@ -54,7 +55,7 @@ class Shop {
     return item;
   };
 
-  updateConjuredItems = (item) => {
+  updateConjuredItem = (item) => {
     item.sellIn -= 1;
     item.quality = item.sellIn > 0 ? Math.max(item.quality - 2, 0) : Math.max(item.quality - 4, 0);
     return item;
@@ -132,7 +133,7 @@ module.exports = {
 //   }
 // }
 
-module.exports = {
-  Item,
-  Shop,
-};
+// module.exports = {
+//   Item,
+//   Shop,
+// };
