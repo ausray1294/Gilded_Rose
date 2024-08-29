@@ -1,6 +1,4 @@
 const { Item, Shop } = require('../src/gilded_rose.js');
-// You need more tests than just the ones written here, this is just to get you started.
-// USE COVERAGE GUTTERS TO GUIDE YOUR TEST WRITING
 describe('Gilded Rose Pin Down Tests', () => {
   describe('Items should be an array', () => {
     test('It should initialize an empty array', () => {
@@ -133,7 +131,7 @@ describe('Gilded Rose Pin Down Tests', () => {
     });
   });
 
-  describe('It should accurately update the conjured items when updateConjuredItem is called', () => {
+  describe("It should accurately update the 'Conjured' items when updateConjuredItem is called", () => {
     test('Conjured items should degrade in quality by 2 each day', () => {
       let conjuredItem = new Item('Conjured', 10, 20); //build
       const gildedRose = new Shop([conjuredItem]);
