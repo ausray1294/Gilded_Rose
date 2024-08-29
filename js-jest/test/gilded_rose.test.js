@@ -120,4 +120,35 @@ describe('Gilded Rose Pin Down Tests', () => {
       expect(items[0].sellIn).toBe(0);
     });
   });
+
+  // describe('It should accurately update the conjured items when updateConjuredItem is called', () => {
+  //   test('Conjured items should degrade in quality by 2 each day', () => {
+  //     let conjuredItem = new Item('Conjured', 10, 20); //build
+  //     const gildedRose = new Shop([conjuredItem]);
+
+  //     const items = gildedRose.updateQuality(); //operate
+
+  //     expect(items[0].name).not.toEqual('Sulfuras, Hand of Ragnaros');
+  //     expect(items[0].quality).toBe(18); //check
+  //   });
+
+  //   test('Conjured items should degrade in quality by 4 each day after reaching zero', () => {
+  //     let conjuredItem = new Item('Conjured', 0, 20);
+  //     const gildedRose = new Shop([conjuredItem]);
+
+  //     const items = gildedRose.updateQuality();
+
+  //     expect(items[0].quality).toBe(16);
+  //   });
+
+  //   test('Conjured items with quality less than 1 return 0 quality and decrement sellIn', () => {
+  //     let conjuredItem = new Item('Conjured', 5, 0);
+  //     const gildedRose = new Shop([conjuredItem]);
+
+  //     const items = gildedRose.updateQuality();
+
+  //     expect(items[0].quality).toBe(0);
+  //     expect(items[0].sellIn).toBe(4);
+  //   });
+  // });
 });
