@@ -1,7 +1,7 @@
 const { Item, Shop } = require('../src/gilded_rose.js');
 describe('Gilded Rose Pin Down Tests', () => {
-  describe('Items should be an array', () => {
-    test('It should initialize an empty array', () => {
+  describe('It should be an array', () => {
+    test('Items should initialize an empty array', () => {
       const shop = new Shop();
       expect(shop.items).toBeInstanceOf(Array);
       expect(shop.items.length).toBe(0);
