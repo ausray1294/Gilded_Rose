@@ -22,9 +22,9 @@ class Shop {
       ? this.updateBackstagePass(item)
       : item.name == 'Sulfuras, Hand of Ragnaros'
       ? item
-      : // : item.name.includes('Conjured')
-        // ? this.updateConjuredItems(item)
-        this.updateNormalItem(item);
+      : item.name.includes('Conjured')
+      ? this.updateConjuredItems(item)
+      : this.updateNormalItem(item);
   };
 
   updateNormalItem = (item) => {
@@ -54,11 +54,11 @@ class Shop {
     return item;
   };
 
-  // updateConjuredItems = (item) => {
-  //   item.sellIn -= 1;
-  //   item.quality = item.sellIn > 0 ? Math.min(item.quality - 2, 0) : Math.min(item.quality - 4, 0);
-  //   return item;
-  // };
+  updateConjuredItems = (item) => {
+    item.sellIn -= 1;
+    item.quality = item.sellIn > 0 ? Math.max(item.quality - 2, 0) : Math.max(item.quality - 4, 0);
+    return item;
+  };
 }
 
 module.exports = {
